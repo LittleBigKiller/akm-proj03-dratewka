@@ -165,9 +165,6 @@ game = {
                 input.addEventListener('keydown', function (e) {
                     e.preventDefault()
 
-                    if (this.value.length == 20)
-                        this.value = this.value.slice(0, -1)
-
                     if (e.keyCode == 20 || e.keyCode == 16)
                         game.caps = !game.caps
 
@@ -175,13 +172,21 @@ game = {
                         this.value = this.value.slice(0, -1)
 
                     if (e.keyCode >= 65 && e.keyCode <= 90)
-                        if (game.caps)
+                        if (game.caps) {
+                            if (this.value.length == 20)
+                                this.value = this.value.slice(0, -1)
                             this.value += String.fromCharCode(e.which).toUpperCase()
-                        else
+                        } else {
+                            if (this.value.length == 20)
+                                this.value = this.value.slice(0, -1)
                             this.value += String.fromCharCode(e.which).toLowerCase()
+                        }
                     
-                    if (e.keyCode >= 48 && e.keyCode <= 57)
+                    if (e.keyCode >= 48 && e.keyCode <= 57) {
+                        if (this.value.length == 20)
+                            this.value = this.value.slice(0, -1)
                         this.value += String.fromCharCode(e.which)
+                    }
 
                     let data = game.map[game.vars.posY - 1][game.vars.posX - 1]
                     if (game.vars.gossip || game.vars.vocab) {
