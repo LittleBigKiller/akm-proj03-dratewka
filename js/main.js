@@ -171,6 +171,12 @@ game = {
                     if (e.keyCode == 8)
                         this.value = this.value.slice(0, -1)
 
+                    if (e.keyCode == 32) {
+                        if (this.value.length == 20)
+                            this.value = this.value.slice(0, -1)
+                        this.value += ' '
+                    }
+
                     if (e.keyCode >= 65 && e.keyCode <= 90)
                         if (game.caps) {
                             if (this.value.length == 20)
