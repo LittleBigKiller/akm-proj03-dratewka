@@ -8,11 +8,11 @@
   padding: 0;
   margin: 0;
   font-family: Dratewka;
-  box-sizing: border-box;
   -moz-user-select: none;
   user-select: none;
   image-rendering: crisp-edges;
   -moz-image-rendering: crisp-edges;
+  outline: none;
 }
 body {
   display: flex;
