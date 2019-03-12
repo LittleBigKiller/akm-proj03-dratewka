@@ -39,6 +39,7 @@ game = {
             this.objects.msg = document.getElementById('msg')
             this.objects.label = document.getElementById('label')
             this.objects.input = document.getElementById('input')
+            this.objects.inputbox = document.getElementById('inputbox')
             game.goLoc(game.vars.posY, game.vars.posX)
         }
     },
@@ -478,16 +479,17 @@ game = {
     addMessage : function (cont, time) {
         game.objects.label.innerHTML = cont
         game.objects.label.className = 'labelMsg'
+        if (cont.length > 38) {
+            game.objects.inputbox.style.bottom = '50px'
+        }
         game.timeouts.label = setTimeout(function() {
             game.objects.label.innerHTML = 'What now? '
             game.objects.label.className = ''
+            game.objects.inputbox.style.bottom = null
             game.timeouts.label = null
         }, time)
     }
 }
-
-
-
 
 
 document.addEventListener('DOMContentLoaded', () => {

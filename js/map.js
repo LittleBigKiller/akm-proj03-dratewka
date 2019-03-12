@@ -111,49 +111,50 @@ game.goLoc = function (y, x) {
 
             game.objects.det.innerHTML = 'You see '
             if (data.items.length == 0 && data.storyItems.length == 0) {
-                game.objects.det.innerHTML += 'nothing.'
+                game.objects.det.innerHTML += 'nothing. '
             } else {
                 for (let i in data.storyItems) {
-                    game.objects.det.innerHTML += game.getItemDispname(data.storyItems[i]) + ' '
+                    game.objects.det.innerHTML += game.getItemDispname(data.storyItems[i]) + ', '
                 }
                 for (let i in data.items) {
-                    game.objects.det.innerHTML += game.getItemDispname(data.items[i]) + ' '
+                    game.objects.det.innerHTML += game.getItemDispname(data.items[i]) + ', '
                 }
             }
+            game.objects.det.innerHTML = game.objects.det.innerHTML.slice(0, -2) + '.'
 
             game.objects.eq.innerHTML = 'You have '
             if (game.backpack == null) {
                 game.objects.eq.innerHTML += 'nothing.'
             } else {
-                game.objects.eq.innerHTML += game.getItemDispname(game.backpack) + ' '
+                game.objects.eq.innerHTML += game.getItemDispname(game.backpack) + '.'
             }
 
             let dirText = 'You can go '
             let comPath = 'assets/compass/'
             if (data.dirs.n || data.dirs.e || data.dirs.s || data.dirs.w) {
                 if (data.dirs.w) {
-                    dirText += 'WEST '
+                    dirText += 'WEST, '
                     comPath += 'W'
                 }
                 if (data.dirs.e) {
-                    dirText += 'EAST '
+                    dirText += 'EAST, '
                     comPath += 'E'
                 }
                 if (data.dirs.n) {
-                    dirText += 'NORTH '
+                    dirText += 'NORTH, '
                     comPath += 'N'
                 }
                 if (data.dirs.s) {
-                    dirText += 'SOUTH '
+                    dirText += 'SOUTH, '
                     comPath += 'S'
                 }
                 comPath += '.png'
             } else {
-                dirText += 'nowhere.'
+                dirText += 'nowhere.  '
                 comPath = 'assets/compass.png'
             }
             game.objects.comp.src = comPath
-            game.objects.dir.innerHTML = dirText
+            game.objects.dir.innerHTML = dirText.slice(0, -2) + '.'
 
             let gg = game.goals
             if (gg.legs && gg.trunk && gg.skin && gg.head && gg.solid && gg.liquid && y == 4 && x == 3 && !gg.hasSheep) {
@@ -161,9 +162,19 @@ game.goLoc = function (y, x) {
                 gg.hasSheep = true
                 data.storyItems = []
                 game.goLoc(y, x)
-                setTimeout( function() {
-                    game.objects.msg.innerHTML = 'Your fake sheep is full of poison and ready to be eaten by the dragon'
-                }, 100)
+
+                clearTimeout(game.timeouts.label)
+                clearTimeout(game.timeouts.delayed)
+                clearTimeout(game.timeouts.delayed1)
+                clearTimeout(game.timeouts.label)
+                game.objects.label.innerHTML = 'What now? '
+                game.objects.label.className = ''
+                game.timeouts.label = null
+                game.timeouts.delayed = null
+                game.timeouts.delayed1 = null
+                setTimeout( function() { game.objects.input.value = null }, 1 )
+
+                setTimeout( function() { game.addMessage('Your fake sheep is full of poison and ready to be eaten by the dragon', 3000) }, 10 )
             }
         }
     } else {
@@ -179,7 +190,7 @@ game.goNorth = function () {
         console.error('You went OoB, can\'t go more north from (' + game.vars.posX + ', ' + game.vars.posY + ')')
     }
     game.goLoc(game.vars.posY, game.vars.posX)
-    game.whereAmI()
+    //game.whereAmI()
 }
 
 game.goSouth = function () {
@@ -189,7 +200,7 @@ game.goSouth = function () {
         console.error('You went OoB, can\'t go more south from (' + game.vars.posX + ', ' + game.vars.posY + ')')
     }
     game.goLoc(game.vars.posY, game.vars.posX)
-    game.whereAmI()
+    //game.whereAmI()
 }
 
 game.goWest = function () {
@@ -199,7 +210,7 @@ game.goWest = function () {
         console.error('You went OoB, can\'t go more west from (' + game.vars.posX + ', ' + game.vars.posY + ')')
     }
     game.goLoc(game.vars.posY, game.vars.posX)
-    game.whereAmI()
+    //game.whereAmI()
 }
 
 game.goEast = function () {
@@ -209,7 +220,7 @@ game.goEast = function () {
         console.error('You went OoB, can\'t go more east from (' + game.vars.posX + ', ' + game.vars.posY + ')')
     }
     game.goLoc(game.vars.posY, game.vars.posX)
-    game.whereAmI()
+    //game.whereAmI()
 }
 
 game.whereAmI = function () {
