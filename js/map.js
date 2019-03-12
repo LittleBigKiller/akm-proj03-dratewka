@@ -52,18 +52,18 @@ game.map = [
         new game.Location('You are in a frontyard of your house', '47.gif', 'rgb(255,190,99)', {n: true, e: false, s: true, w: true}, [], []),
     ],
     [
-        new game.Location('Congrats, you are out of bounds...... Now what?', 'dd.gif', 'rgb(255,0,0)', {n: false, e: false, s: false, w: false}, [], []),
-        new game.Location('Congrats, you are out of bounds...... Now what?', 'dd.gif', 'rgb(0,255,0)', {n: false, e: false, s: false, w: false}, [], []),
-        new game.Location('Congrats, you are out of bounds...... Now what?', 'dd.gif', 'rgb(0,0,255)', {n: false, e: false, s: false, w: false}, [], []),
+        new game.Location('Congrats, you are out of bounds...... Now what?', 'dead.gif', 'rgb(255,0,0)', {n: false, e: false, s: false, w: false}, [], []),
+        new game.Location('Congrats, you are out of bounds...... Now what?', 'dead.gif', 'rgb(0,255,0)', {n: false, e: false, s: false, w: false}, [], []),
+        new game.Location('Congrats, you are out of bounds...... Now what?', 'dead.gif', 'rgb(0,0,255)', {n: false, e: false, s: false, w: false}, [], []),
         new game.Location('You are by a swift stream', '54.gif', 'rgb(108,181,242)', {n: false, e: true, s: false, w: false}, [], []),
         new game.Location('You are on a street leading forest', '55.gif', 'rgb(255,190,99)', {n: true, e: false, s: true, w: true}, [33], []),
         new game.Location('You are in a woodcutter\'s backyard', '56.gif', 'rgb(255,190,99)', {n: false, e: false, s: true, w: false}, [], []),
         new game.Location('You are in a shoemaker\'s house', '57.gif', 'rgb(254,194,97)', {n: true, e: false, s: false, w: false}, [], []),
     ],
     [
-        new game.Location('Congrats, you are out of bounds...... Now what?', 'dd.gif', 'rgb(255,255,0)', {n: false, e: false, s: false, w: false}, [], []),
-        new game.Location('Congrats, you are out of bounds...... Now what?', 'dd.gif', 'rgb(0,255,255)', {n: false, e: false, s: false, w: false}, [], []),
-        new game.Location('Congrats, you are out of bounds...... Now what?', 'dd.gif', 'rgb(255,0,255)', {n: false, e: false, s: false, w: false}, [], []),
+        new game.Location('Congrats, you are out of bounds...... Now what?', 'dead.gif', 'rgb(255,255,0)', {n: false, e: false, s: false, w: false}, [], []),
+        new game.Location('Congrats, you are out of bounds...... Now what?', 'dead.gif', 'rgb(0,255,255)', {n: false, e: false, s: false, w: false}, [], []),
+        new game.Location('Congrats, you are out of bounds...... Now what?', 'dead.gif', 'rgb(255,0,255)', {n: false, e: false, s: false, w: false}, [], []),
         new game.Location('You are in a bleak funeral house', '64.gif', 'rgb(254,194,97)', {n: false, e: true, s: false, w: false}, [24], []),
         new game.Location('You are on a path leading to the wood', '26 i 65.gif', 'rgb(255,190,99)', {n: true, e: true, s: false, w: true}, [], []),
         new game.Location('You are at the edge of a forest', '66.gif', 'rgb(255,190,99)', {n: true, e: true, s: false, w: true}, [], []),
@@ -150,7 +150,7 @@ game.goLoc = function (y, x) {
                 }
                 comPath += '.png'
             } else {
-                dirText += 'nowhere.  '
+                dirText += 'nowhere. '
                 comPath = 'assets/compass.png'
             }
             game.objects.comp.src = comPath
