@@ -45,6 +45,7 @@ game = {
     },
     createScreen : function (id) {
         game.vars.screenId = id
+        document.getElementById('instr').style.display = 'none'
         let cont = document.getElementById('cont')
         let img = new Image ()
         let skip = null
@@ -107,6 +108,8 @@ game = {
                 })
             break
             case 3: // Game Screen
+                document.getElementById('instr').style.display = 'block'
+                
                 let loc = document.createElement('div')
                 loc.id = 'loc'
                 loc.className = 'gameLine'
@@ -196,7 +199,7 @@ game = {
                     }
 
                     let data = game.map[game.vars.posY - 1][game.vars.posX - 1]
-                    if (game.vars.gossip || game.vars.vocab) {
+                    if (game.vars.gossip || game.vars.vocab || game.vars.instr) {
                         game.vars.gossip = false
                         game.vars.vocab = false
                         game.goLoc(game.vars.posY, game.vars.posX)
@@ -456,7 +459,7 @@ game = {
                 })
             break
             case 4:
-                img.src = 'assets/intro/win.gif'
+                img.src = 'assets/intro/win.jpg'
                 img.className = 'winImg'
                 cont.append(img)
 
@@ -471,6 +474,52 @@ game = {
                 cont.append(restart)
                 restart.addEventListener('click', function () {
                     location.reload()
+                })
+            break
+            case 5:
+                instrText = document.createElement('div')
+                instrText.className = 'instrText'
+                instrText.innerHTML = 'take key from 23<br>' +
+                    'use key on 56 (axe)<br>' +
+                    'use axe on 67 (sticks)<br>' +
+                    'use sticks[12] on 43 [goal]<br><br>' +
+
+                    'take mushrooms from 17<br>' +
+                    'use mushrooms on 34 (money)<br>' +
+                    'use money on 37 (barrel)<br>' +
+                    'use barrel[16] on 43 [goal]<br><br>' +
+
+                    'take berries from 27<br>' +
+                    'use berries on 36 (wool)<br>' +
+                    'use wool[19] on 43 [goal]<br><br>' +
+
+                    'take bag from 44<br>' +
+                    'use bag on 57 (rag)<br>' +
+                    'use rag[22] on 43 [goal]<br><br>' +
+
+                    'take spade from 64<br>' +
+                    'use spade on 11 (sulphur)<br>' +
+                    'use sulphur[25] on 43 [goal]<br><br>' +
+
+                    'take bucket from 15<br>' +
+                    'use bucket on 21 (tar)<br>' +
+                    'use tar[28] on 43 [goal]<br><br>' +
+
+                    '----------------------------<br>' +
+                    'use sheep on 43 (if dragon is dead)<br>' +
+                    'take knife from 55<br>' +
+                    'use knife on 43 (dragonskin)<br>' +
+                    'use dragonskin on 57 (dragonskin shoes)<br>' +
+                    'use dragonskin shoes on 41 (prize)<br>' +
+                    'use prize'
+                cont.append(instrText)
+
+                backToGame = document.createElement('div')
+                backToGame.className = 'uiSkipButton'
+                backToGame.innerHTML = 'Close'
+                cont.append(backToGame)
+                backToGame.addEventListener('click', function () {
+                    game.createScreen(3)
                 })
             break
         }
@@ -492,6 +541,12 @@ game = {
 }
 
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     game.createScreen(1)
+    document.getElementById('instr').addEventListener('click', function() {
+        if (game.vars.screenId == 3)
+            game.createScreen(5)
+    })
 })

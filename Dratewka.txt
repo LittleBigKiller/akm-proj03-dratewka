@@ -1,0 +1,39 @@
+Fiszka do projektu "Dratewka".
+
+Imię: Jakub
+Nazwisko: Dyrcz
+Klasa: 3ib
+Termin (np. 50%): 100%
+
+poniżej zaznacz jednoznacznie co zrobiłeś/aś w 100%. Plik umieść w folderze z grą.
+-------------
+
+1. wprowadzanie komunikatów (0.5p)	#0.5p
+	- komunikaty wpisywane z klawiatury (zatwierdzanie Enterem)
+	- rozpoznanie co najmniej trzech komunikatów (co najmniej informacja w konsoli)
+	- wyglad prompta, jego zachwanie (brak możliwości "wyjścia")
+	- po wejściu do gry domyślnie wpisuje duże znaki (caps/shift - zmiana)
+
+2. mapa, ruch (1p)	#1p
+	- możliwość przechodzenia po dostępnych lokalizacjach (E/W/N/S), pokazywanie odpowiedniej grafiki i nazw lokalizacji
+	- pokazanie odpowiednich kierunków na kompasie + "You can go"
+
+3. przemieszczanie przedmiotów (max 1.5p)	#1.5p
+ (0.5p)	- rozmieszczone przedmioty początkowe - "You see"
+ (1p)	- działanie polecenia T(TAKE) / D(DROP) - "You see" + "You are carrying" (z obostrzeniami)
+
+4. komunikaty (1p)	#1p
+	- pokazywanie odpowiednich komunikatów co najmniej trzech poleceń (np. przy przechodzeniu po lokalizacjach, use, vocabulary itp.)
+	- co najmniej dwa wybrane komunikaty "z timeoutem" (np. próba wejścia na lokację za smokiem)
+
+5. logika gry (max 2.5p) #2.5p
+ (1p)	- polecenie U(USE) (odpowiedni komunikat, uzyskanie przedmiotów - doprowadzenie do conajmniej jednej części owcy)
+ (1.5p)	- oprogramowanie wszystkich zależności (przedmioty) doprowadzających do ukończenia gry, możliwość ukończenia gry (bez "oszustw") - cała logika działa
+		
+6. dodatki (0.5p)	#0.5p
+	- czołówka, instrukcja gry
+	- hejnał
+	- polecenia V(VOCABULARY), G(GOSSIPS)
+	
+
+SUMA PUNKTÓW: 7p
