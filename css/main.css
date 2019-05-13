@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Dratewka';
-  src: url('../assets/fonts/PressStart2P.ttf')  format('truetype');
+  src: url('../assets/fonts/PressStart2P.ttf') format('truetype');
 }
 
 * {
@@ -14,6 +14,7 @@
   -moz-image-rendering: crisp-edges; */
   outline: none;
 }
+
 body {
   display: flex;
   align-items: center;
@@ -25,6 +26,7 @@ body {
   font-size: 1.2em;
   overflow: hidden;
 }
+
 #comp {
   image-rendering: crisp-edges;
   -moz-image-rendering: crisp-edges;
@@ -37,6 +39,7 @@ body {
   background-color: #333333;
   padding: 20px;
 }
+
 #picbox {
   display: flex;
   align-content: center;
@@ -46,17 +49,21 @@ body {
   background-color: #000000;
   margin: 2% 0;
 }
+
 #picbox img {
   width: 50%;
   height: 100%;
 }
+
 .gameLine {
   line-height: 30px;
   margin: 2% 0;
 }
+
 .msgLine {
   color: #DDCC33;
 }
+
 .labelMsg {
   color: #DDCC33;
   width: 750px;
@@ -71,10 +78,12 @@ body {
   height: 40px;
   caret-color: #0000;
 }
+
 #label {
   line-height: 40px;
   padding-right: 20px;
 }
+
 #input {
   height: 40px;
   font-size: 25px;
@@ -83,10 +92,29 @@ body {
   color: #dddddd;
 }
 
+#inputcaret {
+  position: absolute;
+  left: 190px;
+  margin-top: 5px;
+  width: 26px;
+  height: 30px;
+  animation-name: input-caret-blink;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes input-caret-blink {
+  0% {background-color: #DDDDDDFF;}
+  50% {background-color: #DDDDDDFF;}
+  51% {background-color: #DDDDDD00;}
+  100% {background-color: #DDDDDD00;}
+}
+
 .introImg {
   width: 100%;
   height: 100%;
 }
+
 .uiSkipButton {
   position: absolute;
   left: 300px;
@@ -99,19 +127,23 @@ body {
   cursor: pointer;
   border: 2px solid #DDDDDD;
 }
+
 .uiSkipButton:hover {
   border-color: #DD8833;
   color: #DD8833;
 }
+
 .uiSkipButton:active {
   border-color: #88DD33;
   color: #88DD33;
 }
+
 .winImg {
   width: 100%;
   background-size: auto;
   margin: 0 auto;
 }
+
 .winText {
   position: absolute;
   left: 200px;
@@ -120,11 +152,7 @@ body {
   height: 150px;
   text-align: center;
   color: #DDDDDD;
-  text-shadow:
-    -2px -2px 0 #000,  
-     2px -2px 0 #000,
-    -2px  2px 0 #000,
-     2px  2px 0 #000;
+  text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
   line-height: 150px;
   font-size: 2em;
 }
@@ -137,6 +165,7 @@ body {
   right: 10px;
   width: 250px;
 }
+
 .instrText {
   max-width: 760px;
   max-height: 500px;

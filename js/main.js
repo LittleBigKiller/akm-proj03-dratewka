@@ -39,6 +39,7 @@ game = {
             this.objects.msg = document.getElementById('msg')
             this.objects.label = document.getElementById('label')
             this.objects.input = document.getElementById('input')
+            this.objects.inputcaret = document.getElementById('inputcaret')
             this.objects.inputbox = document.getElementById('inputbox')
             game.goLoc(game.vars.posY, game.vars.posX)
         }
@@ -161,6 +162,12 @@ game = {
                 label.className = 'msgLine'
                 label.innerHTML = 'What now?'
                 inputbox.append(label)
+                
+                let inputcaret = document.createElement('div')
+                inputcaret.id = 'inputcaret'
+                inputcaret.className = 'inputCaret'
+                inputcaret.innerHTML = ''
+                inputbox.append(inputcaret)
 
                 let input = document.createElement('input')
                 input.id = 'input'
@@ -197,6 +204,7 @@ game = {
                             this.value = this.value.slice(0, -1)
                         this.value += String.fromCharCode(e.which)
                     }
+                    inputcaret.style.left = 192 + this.value.length * 25 + 'px'
 
                     let data = game.map[game.vars.posY - 1][game.vars.posX - 1]
                     if (game.vars.gossip || game.vars.vocab || game.vars.instr) {
